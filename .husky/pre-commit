@@ -1,2 +1,1 @@
-CI=true npm test
 npm run lint 

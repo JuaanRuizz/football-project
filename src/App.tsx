@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Prueba 
+          HOLA MUNDO (PRUEBA CON RUN TEST)
         </a>
       </header>
     </div>

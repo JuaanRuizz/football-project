@@ -6,7 +6,7 @@ function App(): JSX.Element {
   return (
     <div className="App">
       <h1>
-        Página LigaBetPLay!
+        ¡Página LigaBetPLay!!!!!!
       </h1>
     <Header name="LigaBetPlay"></Header>  
     </div>

@@ -1,59 +1,35 @@
-import React, { useState } from 'react'
-import Logo from "./Assets/Logo-LB1.png"
-import { BsCart2 } from "react-icons/bs"
-import { HiOutlineBars3 } from "react-icons/hi2"
-import { Box, Drawer, ListItemButton, ListItemIcon, ListItemText } from "@mui/material"
-import  HomeIcon  from "@mui/icons-material/Home"
-import  InfoIcon  from "@mui/icons-material/Info"
-import CommentRoundedIcon from "@mui/icons-material/ShoppingCartCheckoutRounded"
+import React from 'react';
+import Logo from "../Assets/Logo-LB3.png";
+import Trophy from "../Assets/Tofeo-Liga.png";
+import Footer from "../Assets/Footer.png";
 
-const Navbar = () => {
-
-    const [openMenu, setOpenMenu] = useState(false)
-    const menuOptions = [
-        {
-            text:"Home",
-            icon: <HomeIcon></HomeIcon>  
-        },
-        {
-            text:"About",
-            icon: <InfoIcon></InfoIcon>  
-        },
-        {
-            text:"Tabla de Posiciones",
-            icon: <CommentRoundedIcon></CommentRoundedIcon>  
-        },
-        {
-            text:"Equipos",
-            icon: <HomeIcon></HomeIcon>  
-        },
-        {
-            text:"Jugadores",
-            icon: <HomeIcon></HomeIcon>  
-        },
-    ]
+const Land: React.FC = () => {
   return (
     <nav>
-      <div className='nav-logo-container'>
+      <div className='lan-logo-container'>
         <img src={Logo} alt='Logo' />
       </div>
-      <div className='navbar-links-container'>
-        <a href="">
-            <BsCart2 className='navbar-cart-icon'></BsCart2>
-        </a>
-        <a href="">About</a>
-        <a href="">Tabla de Posiciones</a>
-        <a href="">Equipos</a>
-        <a href="">Jugadores</a>
+      <div className='buttton-container'>
+        {/* <StatisticsButton></StatisticsButton>  // TODO_:Componente de botón para el futuro */}
         <button className='primary-button'>
-            Bookings now
+            Estadísticas
         </button>
-        <div className='navbar-menu-container'>
-            <HiOutlineBars3 onClick={() => setOpenMenu(true)}></HiOutlineBars3>
-        </div>
+      </div>
+      <div className='about-container'>
+        <img className='img-trophy-1' src={Trophy} alt="trophy" />
+        <h1 className='about-title'>Primera Divisón del Fútbol Colombiano</h1>
+        <img className='img-trophy-2' src={Trophy} alt="trophy" />
+      </div>
+      <div className='about-text'>
+        <h2>
+        La Primera división es conocida como Categoría Primera A, cuyo nombre comercial es Liga BetPlay desde el año 2020. En ella se coronan dos campeones en el año, en dos torneos diferentes (Apertura y Finalización), que clasifican a la fase de grupos de la Copa Libertadores del año siguiente. El mejor equipo de la reclasificación (suma total de puntos en un año) que no haya sido campeón clasifica a una fase previa junto con el campeón de la Copa Colombia. Por su parte, participan en la Copa Sudamericana los cuatro siguientes mejores equipos en la reclasificación que no hayan clasificado a Copa Libertadores. Finalmente, los dos equipos ubicados en la penúltima y última posición de la tabla de promedios son descendidos de manera directa al Torneo de Ascenso o la Categoría Primera B del próximo año.
+        </h2>
+      </div>
+      <div>
+        <img className='img-footer' src={Footer} alt="footer" />
       </div>
     </nav>
-  )
+  );
 }
 
-export default Navbar
+export default Land;

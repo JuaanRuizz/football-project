@@ -7,9 +7,6 @@ import Home from './Components/Home';
 function App(): JSX.Element {
   return (
     <div className="App">
-      <h1>
-        ¡Página LigaBetPLay!!!!!!
-      </h1>
       <Home></Home>
     {/* <Header name="LigaBetPlay"></Header>   */}
     </div>

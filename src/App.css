@@ -1,38 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif !important;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
+  width: 85vw;
+  max-width: 1900px;
+  margin: 0rem auto;
+}
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: #087DD1;
+}
+
+nav {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  min-height: 90px;
+}
+.primary-button {
+  padding: 10px 100vh;
+  margin: 45px;
+  background-color: #003264;
+  outline: none;
+  border: none;
+  border-radius: 5rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+  font-weight: bold;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.lan-logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 55px;
+  padding-bottom: 20px;
+  width: 150px;
+  height: 150px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.about-container{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.about-title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  padding: 16px;
+  width: 390px;
+  background-color: #003264;
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  border-radius: 5rem;
+  z-index: 1;
+}
+
+.img-trophy-1 {
+  position: relative;
+  padding-right: 130px;
+  margin: 0;
+  height: 180px;
+  width: auto; 
+}
+
+.img-trophy-2 {
+  position: relative;
+  padding-left: 145px;
+  margin: 0;
+  height: 180px;
+  width: auto;
+  
+}
+
+.about-text {
+  padding: 20px 10px;
+  margin: 5px;
+  color: white;
+  font-size: 18px;
+  font-weight: 400;
+  font-style: italic;
+  text-align: justify;
+  width: 75%;
+}
+
+.img-footer{
+  padding-top: 180px;
 }

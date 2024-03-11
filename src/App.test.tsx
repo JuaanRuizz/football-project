@@ -4,6 +4,6 @@ import App from './App';
 
 test('renders the title', () => {
   render(<App />);
-  const title = screen.getByText(/Página LigaBetPLay/i);
+  const title = screen.getByText(/Primera Divisón del Fútbol Colombiano/i);
   expect(title).toBeInTheDocument();
 });

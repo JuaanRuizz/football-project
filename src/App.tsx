@@ -1,15 +1,20 @@
 import React from 'react';
 import './App.css';
-import Home from './Components/Home';
-// import Header from './Components/Header'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Home from './Components/Home/Home';
+import NavMenu from './Components/NavMenu/NavMenu';
+import PageNotFound from './Components/404Error/PageNotFound';
 
 
-function App(): JSX.Element {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <Home></Home>
-    {/* <Header name="LigaBetPlay"></Header>   */}
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/home" exact component={Home} />
+        <Route path="/navmenu" exact component={NavMenu} />
+        <Route component={PageNotFound} />  
+      </Switch>
+    </Router>
   );
 }
 

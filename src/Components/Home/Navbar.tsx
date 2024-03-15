@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from "../Assets/Logo-LB3.png";
-import Trophy from "../Assets/Tofeo-Liga.png";
-import Footer from "../Assets/Footer.png";
+import Logo from "../../Assets/Logo-LB3.png";
+import Trophy from "../../Assets/Tofeo-Liga.png";
+import Footer from "../../Assets/Footer.png";
 
 const Land: React.FC = () => {
   return (
@@ -11,9 +11,9 @@ const Land: React.FC = () => {
       </div>
       <div className='buttton-container'>
         {/* <StatisticsButton></StatisticsButton>  // TODO_:Componente de botón para el futuro */}
-        <button className='primary-button'>
-            Estadísticas
-        </button>
+        <a href="/navmenu" className='primary-button'>
+          Estadísticas
+        </a>
       </div>
       <div className='about-container'>
         <img className='img-trophy-1' src={Trophy} alt="trophy" />

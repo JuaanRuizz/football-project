@@ -182,8 +182,54 @@ nav {
   border-radius: 6px;
   padding: 12px;
 }
+.footer-general{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  font-style: italic;
+}
 .column-right{
   background-color: #003264;
   width: 100vh;
   height: 100vh;
+}
+.img-container{
+  display: grid; 
+  grid-template-columns: 93px 93px 93px;
+  grid-gap: 0px;
+  width: 100vh;
+  height: 100vh;
+}
+
+.trofeo-img {
+width: auto;
+height: 150px;
+}
+
+.img-container img {
+  padding: 0px 5px;
+}
+
+.nacional-img{
+  width: 75px;
+}
+.santafe-img{
+  width: 75px;
+}
+.caldas-img{
+  width: 75px;
+}
+.pasto-img{
+  width: 100px;
+}
+.medellin-img{
+  width: 100px;
+}
+.cali-img{
+  width: 100px;
+}
+.tolima-img{
+  width: 100px;
 }

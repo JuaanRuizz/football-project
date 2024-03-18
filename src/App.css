@@ -103,3 +103,133 @@ nav {
 .img-footer{
   padding-top: 180px;
 }
+.nav-container{
+  display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+.column-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 0px;
+  width: 35vh;
+  height: 100vh;
+}
+.menu-logo-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.logo-navmenu{
+  width: auto;
+  height: 150px;
+}
+.title-navmenu{
+  color: white;
+  text-align: center;
+  font-size: larger;
+  font-weight: 900;
+  font-size: 23px;
+  width: 40vh;
+  padding-right: 10px;
+}
+.find-text{
+  color: white;
+  text-align: center;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.links-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: white;
+  width: 30vh;
+  height: 45vh;
+}
+.link-home{
+  background-color: #003264;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
+}
+.link-table{
+  background-color: #003264;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
+}
+.link-players{
+  background-color: #003264;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
+}
+.link-teams{
+  background-color: #003264;
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
+}
+.footer-general{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 10px;
+  font-style: italic;
+}
+.column-right{
+  background-color: #003264;
+  width: 100vh;
+  height: 100vh;
+}
+.img-container{
+  display: grid; 
+  grid-template-columns: 93px 93px 93px;
+  grid-gap: 0px;
+  width: 100vh;
+  height: 100vh;
+}
+
+.trofeo-img {
+width: auto;
+height: 150px;
+}
+
+.img-container img {
+  padding: 0px 5px;
+}
+
+.nacional-img{
+  width: 75px;
+}
+.santafe-img{
+  width: 75px;
+}
+.caldas-img{
+  width: 75px;
+}
+.pasto-img{
+  width: 100px;
+}
+.medellin-img{
+  width: 100px;
+}
+.cali-img{
+  width: 100px;
+}
+.tolima-img{
+  width: 100px;
+}

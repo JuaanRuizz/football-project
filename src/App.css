@@ -1,3 +1,12 @@
+:root {
+  --primary-blue: #087DD1;
+  --secondary-blue: #003264;
+  --text-padding: 20px 10px;
+  --img-padding: 0px 5px;
+  --img-width: auto;
+  --button-padding: 10px 100vh;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,19 +14,17 @@
   font-family: "Roboto", sans-serif !important;
 }
 
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  background-color: var(--primary-blue);
+}
+
 .App {
   min-height: 100vh;
   width: 85vw;
   max-width: 1900px;
-  margin: 0rem auto;
-}
-body {
-  max-width: 100%;
-  overflow-x: hidden;
-}
-
-body {
-  background-color: #087DD1;
+  margin: 0 auto;
 }
 
 nav {
@@ -27,44 +34,46 @@ nav {
   justify-content: space-between;
   min-height: 90px;
 }
+
 .primary-button {
-  padding: 10px 100vh;
-  margin: 45px;
-  background-color: #003264;
+  padding: var(--button-padding);
+  margin: 0px;
+  background-color: var(--secondary-blue);
   outline: none;
   border: none;
   border-radius: 5rem;
   cursor: pointer;
-  font-weight: 600;
-  font-size: 20px;
   font-weight: bold;
+  font-size: 20px;
   color: white;
+}
+.primary-button:hover{
+  opacity: 0.9;
 }
 
 .lan-logo-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 55px;
-  padding-bottom: 20px;
+  padding: 19px;
   width: 150px;
   height: 150px;
 }
 
-.about-container{
+.about-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.about-title{
+.about-title {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
   padding: 16px;
   width: 390px;
-  background-color: #003264;
+  background-color: var(--secondary-blue);
   color: white;
   font-weight: bold;
   font-size: 20px;
@@ -72,25 +81,24 @@ nav {
   z-index: 1;
 }
 
-.img-trophy-1 {
+.img-trophy-1,
+.img-trophy-2 {
   position: relative;
-  padding-right: 130px;
   margin: 0;
   height: 180px;
-  width: auto; 
+  width: var(--img-width);
+}
+
+.img-trophy-1 {
+  padding-right: 130px;
 }
 
 .img-trophy-2 {
-  position: relative;
   padding-left: 145px;
-  margin: 0;
-  height: 180px;
-  width: auto;
-  
 }
 
 .about-text {
-  padding: 20px 10px;
+  padding: var(--text-padding);
   margin: 5px;
   color: white;
   font-size: 18px;
@@ -100,49 +108,73 @@ nav {
   width: 75%;
 }
 
-.img-footer{
+.img-footer {
   padding-top: 180px;
 }
-.nav-container{
+
+.nav-container {
   display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
+
 .column-left {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  padding: 0px;
+  padding: 0;
   width: 35vh;
   height: 100vh;
 }
-.menu-logo-container{
+
+.menu-logo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
-.logo-navmenu{
+
+.logo-navmenu {
   width: auto;
   height: 150px;
 }
-.title-navmenu{
+
+.title-navmenu {
   color: white;
   text-align: center;
-  font-size: larger;
   font-weight: 900;
   font-size: 23px;
   width: 40vh;
   padding-right: 10px;
 }
+
 .find-text{
   color: white;
+  font-size: 19px;
   text-align: center;
   font-weight: 500;
-  font-size: 19px;
+}
+.link-home,
+.link-table,
+.link-players,
+.link-teams {
+  background-color: var(--secondary-blue);
+  font-weight: 500;
+  text-align: center;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
 }
 
-.links-container{
+.link-home:hover,
+.link-table:hover,
+.link-players:hover,
+.links-players:hover,
+.link-teams:hover {
+  opacity: 0.8; 
+}
+
+.links-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -150,39 +182,8 @@ nav {
   width: 30vh;
   height: 45vh;
 }
-.link-home{
-  background-color: #003264;
-  font-weight: 500;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 12px;
-}
-.link-table{
-  background-color: #003264;
-  font-weight: 500;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 12px;
-}
-.link-players{
-  background-color: #003264;
-  font-weight: 500;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 12px;
-}
-.link-teams{
-  background-color: #003264;
-  font-weight: 500;
-  text-align: center;
-  font-size: 18px;
-  border-radius: 6px;
-  padding: 12px;
-}
-.footer-general{
+
+.footer-general {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -190,46 +191,129 @@ nav {
   font-size: 10px;
   font-style: italic;
 }
-.column-right{
-  background-color: #003264;
+
+.column-right {
+  background-color: var(--secondary-blue);
   width: 100vh;
   height: 100vh;
 }
-.img-container{
-  display: grid; 
-  grid-template-columns: 93px 93px 93px;
-  grid-gap: 0px;
+
+.img-container {
+  display: grid;
+  grid-template-columns: repeat(3, 93px);
+  grid-gap: 0;
   width: 100vh;
   height: 100vh;
 }
 
 .trofeo-img {
-width: auto;
-height: 150px;
+  width: auto;
+  height: 150px;
 }
 
 .img-container img {
-  padding: 0px 5px;
+  padding: var(--img-padding);
 }
 
-.nacional-img{
+.nacional-img,
+.santafe-img,
+.caldas-img {
   width: 75px;
 }
-.santafe-img{
-  width: 75px;
-}
-.caldas-img{
-  width: 75px;
-}
-.pasto-img{
+
+.pasto-img,
+.medellin-img,
+.cali-img,
+.tolima-img {
   width: 100px;
 }
-.medellin-img{
-  width: 100px;
+
+
+.table-title {
+  color: white;
+  font-weight: 600;
 }
-.cali-img{
-  width: 100px;
+.header-teams{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.tolima-img{
-  width: 100px;
+.logo-teams{
+  padding: 10px;
+  margin-right: 10px; 
+  border-radius: 10%;
+  width: 70px; 
+  height: auto;
+}
+.header-teams-title{
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+}
+.container-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center; }
+
+.teams-list ol{
+  list-style-type: decimal; 
+  padding-left: 0; 
+}
+.items-list-teams {
+  display: flex; 
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: var(--secondary-blue); 
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+}
+
+.items-list-teams img {
+  margin-right: 10px; 
+  border-radius: 40%; 
+}
+.link-navmenu-table{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 800;
+  background-color: var(--secondary-blue);
+}
+.interesting-facts-container{
+  text-align: justify;
+}
+.interesting-facts-title{
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px;
+}
+.interesting-facts-list{
+  padding-right: 20px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: 450;
+  width: 100%;
+  list-style-type:circle;
+}
+.interesting-facts-list li{
+  margin-bottom: 30px;
+}
+.payers-links-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.links-players{
+  background-color: var(--secondary-blue);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  padding: 12px;
+  font-weight: 500;
 }

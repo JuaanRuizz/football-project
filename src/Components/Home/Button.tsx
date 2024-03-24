@@ -1,16 +1,9 @@
 import React from 'react';
-import { Link, BrowserRouter, Route } from 'react-router-dom';
-import NavMenu from '../NavMenu/NavMenu'; // Importa el componente NavMenu
 
-function StatisticsButton() {
+const Button: React.FC = () => {
   return (
-    <BrowserRouter>
-      <Link to="/navmenu"> 
-        <button>Estadísticas</button>
-      </Link>
-      <Route path="/navmenu" component={NavMenu} /> 
-    </BrowserRouter>
+    <button>Click me</button>
   );
 }
 
-export default StatisticsButton;
+export default Button;

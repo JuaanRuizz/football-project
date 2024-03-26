@@ -303,17 +303,41 @@ nav {
 .interesting-facts-list li{
   margin-bottom: 30px;
 }
+.players-container{
+  padding: 20px;
+}
 .payers-links-container{
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  border-radius: 50px;
+  padding: 30px;
 }
 .links-players{
+  padding: 0px;
+  margin: 30px;
   background-color: var(--secondary-blue);
   color: white;
   font-size: 18px;
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 12px;
   font-weight: 500;
+  
+}
+.players-header{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.logo-players{
+  padding: 10px;
+  width: auto;
+  height: auto;
+}
+.players-title{
+  color: white;
+  font-weight: 600;
+  font-size: x-large;
+  padding: 20px;
 }

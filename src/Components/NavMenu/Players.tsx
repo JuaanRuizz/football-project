@@ -4,7 +4,7 @@ import Logo from '../../Assets/Logo-LB3.png';
 
 const Players = () => {
   return (
-    <div>
+    <div className='players-container'>
       <div className='players-header'>
         <img className='logo-players' src={Logo} alt='Logo' />
         <h1 className='players-title'>ESTADÍSTICAS DE JUGADORES</h1>

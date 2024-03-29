@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from '../../Assets/Logo-LB3.png';
+import './PlayersCSS.css';
+import Logo from '../../../Assets/Logo-LB3.png';
 
 const Players = () => {
   return (

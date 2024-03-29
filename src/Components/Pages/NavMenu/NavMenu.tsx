@@ -1,18 +1,19 @@
 import React from 'react';
+import './NavMenuCSS.css';
 import { Link } from 'react-router-dom';
-import Logo from '../../Assets/Logo-LB3.png';
-import Aguilas from '../../Assets/logo-aguilas.png';
-import America from '../../Assets/logo-america.png';
-import Cali from '../../Assets/logo-cali.png';
-import Junior from '../../Assets/logo-junior.png';
-import Medellin from '../../Assets/logo-medellin.png';
-import Millonarios from '../../Assets/logo-millonarios.png';
-import Nacional from '../../Assets/logo-nacional.png';
-import Pasto from '../../Assets/logo-pasto.png';
-import Santafe from '../../Assets/logo-santafe.png';
-import Tolima from '../../Assets/logo-tolima.png';
-import Caldas from '../../Assets/logo-caldas.png';
-import Trofeo from '../../Assets/Tofeo-Liga.png';
+import Logo from '../../../Assets/Logo-LB3.png';
+import Aguilas from '../../../Assets/logo-aguilas.png';
+import America from '../../../Assets/logo-america.png';
+import Cali from '../../../Assets/logo-cali.png';
+import Junior from '../../../Assets/logo-junior.png';
+import Medellin from '../../../Assets/logo-medellin.png';
+import Millonarios from '../../../Assets/logo-millonarios.png';
+import Nacional from '../../../Assets/logo-nacional.png';
+import Pasto from '../../../Assets/logo-pasto.png';
+import Santafe from '../../../Assets/logo-santafe.png';
+import Tolima from '../../../Assets/logo-tolima.png';
+import Caldas from '../../../Assets/logo-caldas.png';
+import Trofeo from '../../../Assets/Tofeo-Liga.png';
 
 const NavMenu: React.FC = () => {
     return (

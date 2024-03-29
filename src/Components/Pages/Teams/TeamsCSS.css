@@ -1,0 +1,71 @@
+.header-teams {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.logo-teams {
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 10%;
+  width: 70px;
+  height: auto;
+}
+.header-teams-title {
+  color: white;
+  font-weight: 700;
+  font-size: 25px;
+}
+.container-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+.teams-list ol {
+  list-style-type: decimal;
+  padding-left: 0;
+}
+.items-list-teams {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  background-color: var(--secondary-blue);
+  border-radius: 10px;
+  width: 100%;
+  color: white;
+}
+
+.items-list-teams img {
+  margin-right: 10px;
+  border-radius: 40%;
+}
+.link-navmenu-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 800;
+  background-color: var(--secondary-blue);
+}
+.interesting-facts-container {
+  text-align: justify;
+}
+.interesting-facts-title {
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 10px;
+}
+.interesting-facts-list {
+  padding-right: 20px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-weight: 450;
+  width: 100%;
+  list-style-type: circle;
+}
+.interesting-facts-list li {
+  margin-bottom: 30px;
+}

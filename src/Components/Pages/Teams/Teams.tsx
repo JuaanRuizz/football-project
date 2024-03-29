@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
-import Logo from '../../Assets/Logo-LB3.png';
+import './TeamsCSS.css';
+import Logo from '../../../Assets/Logo-LB3.png';
 
 interface TeamData {
   team: {

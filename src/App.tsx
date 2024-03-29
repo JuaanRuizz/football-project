@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Components/Home/Home';
-import NavMenu from './Components/NavMenu/NavMenu';
+import NavMenu from './Components/Pages/NavMenu/NavMenu';
 import PageNotFound from './Components/404Error/PageNotFound';
-import Table from './Components/NavMenu/Table';
-import Teams from './Components/NavMenu/Teams';
-import Players from './Components/NavMenu/Players';
+import Table from './Components/Pages/Table/Table';
+import Teams from './Components/Pages/Teams/Teams';
+import Players from './Components/Pages/Players/Players';
 
 const App: React.FC = () => {
   return (

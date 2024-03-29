@@ -48,6 +48,11 @@ export default function CustomizedList() {
 
   return (
     <div className="container-teams">
+      <div>
+        <Link to='/navmenu' className='link-navmenu-table'>
+          Menú
+        </Link>
+      </div>
       <div className="header-teams">
         <img className='logo-teams' src={Logo} alt='Logo' />
         <h1 className="header-teams-title">Lista de Equipos Primera División</h1>

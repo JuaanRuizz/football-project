@@ -75,6 +75,11 @@ export default function CustomizedTables() {
 
   return (
     <div className="table">
+      <div className="container-link-navmenu-table">
+        <Link to='/navmenu' className='link-navmenu-table'>
+          Menú
+        </Link>
+      </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="customized table">
           <TableHead>
@@ -104,11 +109,6 @@ export default function CustomizedTables() {
           </TableBody>
         </Table>
       </TableContainer>
-      <div className="container-link-navmenu-table">
-        <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
-        </Link>
-      </div>
     </div>
   );
 }

@@ -14,7 +14,7 @@ const Players = () => {
           Máximos goleadores
         </Link>
         <Link to='/navmenu' className='links-players'>
-          Máximps asistidores
+          Máximos asistidores
         </Link>
         <Link to='/navmenu' className='links-players'>
           Arcos en cero

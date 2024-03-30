@@ -1,5 +1,19 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
 import TopScorers from './TopScorers';
+import { MemoryRouter } from 'react-router-dom';
+
+describe('TopScorers component', () => {
+  test('renders TopScorers component', async () => {
+    render(
+      <MemoryRouter>
+        <TopScorers />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText('Menú')).toBeInTheDocument();
+    
+    expect(screen.getByText('Top Scorers')).toBeInTheDocument();
+  });
+});
+

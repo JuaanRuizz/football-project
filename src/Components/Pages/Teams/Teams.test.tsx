@@ -1,5 +1,18 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { MemoryRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom'; 
 import Teams from './Teams';
+
+test('renders Teams component', () => {
+  render(
+    <BrowserRouter> 
+      <Teams />
+    </BrowserRouter>
+  );
+
+  
+  expect(screen.getAllByText('Menú')).toHaveLength(2); 
+
+  
+  expect(screen.getByText('Lista de Equipos Primera División')).toBeInTheDocument();
+});

@@ -13,6 +13,19 @@ interface TeamData {
   points: number;
 }
 
+// Constantes para los textos
+const MENU_LINK_TEXT = 'Menú';
+const HEADER_TITLE = 'Lista de Equipos Primera División';
+const INTERESTING_FACTS_TITLE = 'Datos Interesantes';
+const FACTS_LIST = [
+  'Atlético Nacional es el equipo más ganador de la Liga BetPlay con 17 títulos',
+  'Dayro Moreno es, hasta el momento, el mayor goleador de la liga colombiana.',
+  'Los tres únicos clubes que han participado durante toda su historia en la máxima categoría del fútbol en Colombia han sido Santa Fe, Millonarios y Atlético Nacional.',
+  'En el año 2022, el Deportivo Pereira ganó su primer título de la liga colombiana, al vencer en penaltis al Deportivo Independiente Medellín.',
+  'El 15 de agosto de 1948 se jugó el primer partido del FPC y este miércoles se conmemoran siete décadas desde el primer encuentro.',
+  'El primer campeón del fútbol colombiano fue Independiente Santa Fé'
+];
+
 const fetchStandings = async () => {
   const response = await fetch(
     "https://v3.football.api-sports.io/standings?league=239&season=2024",
@@ -51,12 +64,12 @@ export default function CustomizedList() {
     <div className="container-teams">
       <div>
         <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
+          {MENU_LINK_TEXT}
         </Link>
       </div>
       <div className="header-teams">
         <img className='logo-teams' src={Logo} alt='Logo' />
-        <h1 className="header-teams-title">Lista de Equipos Primera División</h1>
+        <h1 className="header-teams-title">{HEADER_TITLE}</h1>
       </div>
       <div className="container-list">
         <ol className="teams-list">
@@ -73,20 +86,17 @@ export default function CustomizedList() {
           ))}
         </ol>
         <div className="interesting-facts-container">
-          <h2 className="interesting-facts-title">Datos Interesantes</h2>
+          <h2 className="interesting-facts-title">{INTERESTING_FACTS_TITLE}</h2>
           <ol className="interesting-facts-list">
-            <li>Atlético Nacional es el equipo más ganador de la Liga BetPlay con 17 títulos</li>
-            <li>Dayro Moreno es, hasta el momento, el mayor goleador de la liga colombiana.</li>
-            <li>Los tres únicos clubes que han participado durante toda su historia en la máxima categoría del fútbol en Colombia han sido Santa Fe, Millonarios y Atlético Nacional.</li>
-            <li>En el año 2022, el Deportivo Pereira ganó su primer título de la liga colombiana, al vencer en penaltis al Deportivo Independiente Medellín.</li>
-            <li>El 15 de agosto de 1948 se jugó el primer partido del FPC y este miércoles se conmemoran siete décadas desde el primer encuentro.</li>
-            <li>El primer campeón del fútbol colombiano fue Independiente Santa Fé</li>
+            {FACTS_LIST.map((fact, index) => (
+              <li key={index}>{fact}</li>
+            ))}
           </ol>
         </div>
       </div>
       <div>
         <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
+          {MENU_LINK_TEXT}
         </Link>
       </div>
     </div>

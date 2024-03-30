@@ -1,9 +1,11 @@
 import React from 'react'
+import './PageNotFoundCSS.css'
+import Error from '../../Assets/404error.jpg'
 
 const PageNotFound: React.FC = () => {
   return (
-    <div>
-      <h1>404 Page not found</h1>
+    <div className='not-found-container'>
+      <img src={Error} alt="Error404" />
     </div>
   )
 }

@@ -16,11 +16,6 @@ const Players = () => {
       <Link to='/navmenu' className='link-navmenu-table'>
           {MENU_LINK_TEXT}
         </Link>
-      <div className="container-link-navmenu-table">
-        <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
-        </Link>
-      </div>
       <div className='players-header'>
         <img className='logo-players' src={Logo} alt='Logo' />
         <h1 className='players-title'>{PLAYERS_TITLE}</h1>

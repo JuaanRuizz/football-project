@@ -4,14 +4,18 @@ import './PlayersCSS.css';
 import Logo from '../../../Assets/Logo-LB3.png';
 import Footer from "../../../Assets/Footer.png";
 
-
-const MAXIMOS_GOLEADORES = 'Máximos goleadores';
-const MAXIMOS_ASISTIDORES = 'Máximos asistidores';
-const ARCOS_EN_CERO = 'Arcos en cero';
+const PLAYERS_TITLE = 'ESTADÍSTICAS DE JUGADORES'
+const TOP_SCORERS = 'Máximos goleadores';
+const TOP_ASSISTS = 'Máximos asistidores';
+const TOP_YELLLOW_CARDS = 'Más tarjetas amarillas';
+const MENU_LINK_TEXT = 'Menú';
 
 const Players = () => {
   return (
     <div className='players-container'>
+      <Link to='/navmenu' className='link-navmenu-table'>
+          {MENU_LINK_TEXT}
+        </Link>
       <div className="container-link-navmenu-table">
         <Link to='/navmenu' className='link-navmenu-table'>
           Menú
@@ -19,17 +23,17 @@ const Players = () => {
       </div>
       <div className='players-header'>
         <img className='logo-players' src={Logo} alt='Logo' />
-        <h1 className='players-title'>ESTADÍSTICAS DE JUGADORES</h1>
+        <h1 className='players-title'>{PLAYERS_TITLE}</h1>
       </div>
       <div className='payers-links-container'>
-        <Link to='/navmenu' className='links-players'>
-          {MAXIMOS_GOLEADORES}
+        <Link to='/scorers' className='links-players'>
+          {TOP_SCORERS}
         </Link>
-        <Link to='/navmenu' className='links-players'>
-          {MAXIMOS_ASISTIDORES}
+        <Link to='/assists' className='links-players'>
+          {TOP_ASSISTS}
         </Link>
-        <Link to='/navmenu' className='links-players'>
-          {ARCOS_EN_CERO}
+        <Link to='/yellowcards' className='links-players'>
+          {TOP_YELLLOW_CARDS}
         </Link>
       </div>
       <img className='img-footer' src={Footer} alt="footer" />

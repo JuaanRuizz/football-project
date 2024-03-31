@@ -10,7 +10,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 const MENU_LINK_TEXT = 'Menú';
-
+const POSICION = 'Posición';
+const NOMBRE = 'Nombre';
+const EDAD = 'Edad';
+const EQUIPO = 'Equipo';
+const GOLES = 'Goles';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -95,12 +99,12 @@ const TopScorers: React.FC = () => {
         <Table sx={{ minWidth: 500 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Posición</StyledTableCell>
-              <StyledTableCell>Imagen</StyledTableCell>
-              <StyledTableCell>Nombre</StyledTableCell>
-              <StyledTableCell>Edad</StyledTableCell>
-              <StyledTableCell>Equipo</StyledTableCell>
-              <StyledTableCell>Goles</StyledTableCell>
+              <StyledTableCell>{POSICION}</StyledTableCell>
+              <StyledTableCell></StyledTableCell>
+              <StyledTableCell>{NOMBRE}</StyledTableCell>
+              <StyledTableCell>{EDAD}</StyledTableCell>
+              <StyledTableCell>{EQUIPO}</StyledTableCell>
+              <StyledTableCell>{GOLES}</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

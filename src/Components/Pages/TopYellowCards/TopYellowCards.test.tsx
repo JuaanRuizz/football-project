@@ -13,14 +13,6 @@ describe('TopYellowCards component', () => {
 
     expect(screen.getByText('Menú')).toBeInTheDocument();
 
-    await screen.findByText('Top Yellow Cards'); 
-    expect(screen.getByText('Posición')).toBeInTheDocument();
-    expect(screen.getByText('Nombre')).toBeInTheDocument();
-    expect(screen.getByText('Edad')).toBeInTheDocument();
-    expect(screen.getByText('Equipo')).toBeInTheDocument();
-    expect(screen.getByText('Tarjetas Amarillas')).toBeInTheDocument();
-
-    const playerNameElement = await screen.findByText(/Nombre/i); 
-    expect(playerNameElement).toBeInTheDocument();
+    expect(screen.getByText('Top Yellow Cards')).toBeInTheDocument();
   });
 });

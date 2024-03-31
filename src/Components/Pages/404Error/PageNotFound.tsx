@@ -1,6 +1,6 @@
 import React from 'react'
 import './PageNotFoundCSS.css'
-import Error from '../../Assets/404error.jpg'
+import Error from '../../../Assets/404error.jpg'
 
 const PageNotFound: React.FC = () => {
   return (

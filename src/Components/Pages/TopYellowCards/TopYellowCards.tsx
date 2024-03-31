@@ -10,6 +10,11 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 const MENU_LINK_TEXT = 'Menú';
+const POSICION = 'Posición';
+const NOMBRE = 'Nombre';
+const EDAD = 'Edad';
+const EQUIPO = 'Equipo';
+const TARJETAS_AMARILLAS = 'Tarjetas amarillas';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -94,12 +99,12 @@ const TopYellowCards: React.FC = () => {
         <Table sx={{ minWidth: 500 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Posición</StyledTableCell>
+              <StyledTableCell>{POSICION}</StyledTableCell>
               <StyledTableCell></StyledTableCell>
-              <StyledTableCell>Nombre</StyledTableCell>
-              <StyledTableCell>Edad</StyledTableCell>
-              <StyledTableCell>Equipo</StyledTableCell>
-              <StyledTableCell>Tarjetas Amarillas</StyledTableCell>
+              <StyledTableCell>{NOMBRE}</StyledTableCell>
+              <StyledTableCell>{EDAD}</StyledTableCell>
+              <StyledTableCell>{EQUIPO}</StyledTableCell>
+              <StyledTableCell>{TARJETAS_AMARILLAS}</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

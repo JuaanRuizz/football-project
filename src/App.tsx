@@ -1,15 +1,21 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Home from './Components/Home/Home';
-import NavMenu from './Components/Pages/NavMenu/NavMenu';
-import PageNotFound from './Components/404Error/PageNotFound';
-import Table from './Components/Pages/Table/Table';
-import Teams from './Components/Pages/Teams/Teams';
-import Players from './Components/Pages/Players/Players';
-import TopScorers from './Components/Pages/TopScorers/TopScorers';
-import TopAssists from './Components/Pages/TopAssists/TopAssists';
-import TopYellowCards from './Components/Pages/TopYellowCards/TopYellowCards';
+import React from "react";
+import "./App.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+import Home from "./Components/Home/Home";
+import NavMenu from "./Components/Pages/NavMenu/NavMenu";
+import PageNotFound from "./Components/Pages/404Error/PageNotFound";
+import Table from "./Components/Pages/Table/Table";
+import Teams from "./Components/Pages/Teams/Teams";
+import Players from "./Components/Pages/Players/Players";
+import TopScorers from "./Components/Pages/TopScorers/TopScorers";
+import TopAssists from "./Components/Pages/TopAssists/TopAssists";
+import TopYellowCards from "./Components/Pages/TopYellowCards/TopYellowCards";
+import BurguerMenu from "./Components/Menu/Burguer_Menu";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +23,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/home" />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/menu" element={<BurguerMenu />} />
         <Route path="/navmenu" element={<NavMenu />} />
         <Route path="/table" element={<Table />} />
         <Route path="/teams" element={<Teams />} />
@@ -28,6 +35,6 @@ const App: React.FC = () => {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

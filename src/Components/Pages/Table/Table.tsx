@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import './TableCSS.css';
-import { Link } from 'react-router-dom';
+import BurguerMenu from '../../Menu/Burguer_Menu';
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -24,7 +24,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -42,7 +41,7 @@ interface TeamData {
 
 const fetchStandings = async () => {
   const response = await fetch(
-    "https://v3.football.api-sports.io/standings?league=239&season=2024",
+    "https://v3.football.api-sports.io/standings?league=239&season=2023",
     {
       method: "GET",
       headers: {
@@ -76,10 +75,8 @@ export default function CustomizedTables() {
 
   return (
     <div className="table">
-      <div className="container-link-navmenu-table">
-        <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
-        </Link>
+      <div>
+        <BurguerMenu></BurguerMenu>
       </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="customized table">

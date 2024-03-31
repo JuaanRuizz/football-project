@@ -15,6 +15,5 @@ describe('Players component', () => {
     expect(screen.getByText('Máximos goleadores')).toBeInTheDocument();
     expect(screen.getByText('Máximos asistidores')).toBeInTheDocument();
     expect(screen.getByText('Más tarjetas amarillas')).toBeInTheDocument();
-    expect(screen.getByText('Menú')).toBeInTheDocument();
   });
 });

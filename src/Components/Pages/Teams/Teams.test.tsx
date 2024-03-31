@@ -11,8 +11,5 @@ test('renders Teams component', () => {
   );
 
   
-  expect(screen.getAllByText('Menú')).toHaveLength(2); 
-
-  
   expect(screen.getByText('Lista de Equipos Primera División')).toBeInTheDocument();
 });

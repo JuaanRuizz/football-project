@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import BurguerMenu from '../../Menu/Burguer_Menu';
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,7 +9,6 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
-const MENU_LINK_TEXT = 'Menú';
 const POSICION = 'Posición';
 const NOMBRE = 'Nombre';
 const EDAD = 'Edad';
@@ -30,7 +29,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
+
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -91,9 +90,9 @@ const TopYellowCards: React.FC = () => {
 
   return (
     <div>
-      <Link to='/navmenu' className='link-navmenu-table'>
-        {MENU_LINK_TEXT}
-      </Link>
+      <div>
+        <BurguerMenu></BurguerMenu>
+      </div>
       <h2>Top Yellow Cards</h2>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 500 }} aria-label="customized table">

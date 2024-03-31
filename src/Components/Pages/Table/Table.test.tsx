@@ -11,15 +11,13 @@ describe('Table component', () => {
       </MemoryRouter>
     );
 
-   
-    expect(screen.getByText('Menú')).toBeInTheDocument();
+  
 
     await screen.findByText('Equipo'); 
     expect(screen.getByText('Escudo')).toBeInTheDocument();
     expect(screen.getByText('Posición')).toBeInTheDocument();
     expect(screen.getByText('Puntos')).toBeInTheDocument();
 
-    const teamNameElement = await screen.findByText(/Equipo/i); 
-    expect(teamNameElement).toBeInTheDocument();
+    expect(screen.getByText('Equipo')).toBeInTheDocument();
   });
 });

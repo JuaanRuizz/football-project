@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import BurguerMenu from '../../Menu/Burguer_Menu';
 import './TeamsCSS.css';
 import Logo from '../../../Assets/Logo-LB3.png';
 
@@ -13,8 +13,7 @@ interface TeamData {
   points: number;
 }
 
-// Constantes para los textos
-const MENU_LINK_TEXT = 'Menú';
+
 const HEADER_TITLE = 'Lista de Equipos Primera División';
 const INTERESTING_FACTS_TITLE = 'Datos Interesantes';
 const FACTS_LIST = [
@@ -63,9 +62,7 @@ export default function CustomizedList() {
   return (
     <div className="container-teams">
       <div>
-        <Link to='/navmenu' className='link-navmenu-table'>
-          {MENU_LINK_TEXT}
-        </Link>
+        <BurguerMenu></BurguerMenu>
       </div>
       <div className="header-teams">
         <img className='logo-teams' src={Logo} alt='Logo' />
@@ -93,11 +90,6 @@ export default function CustomizedList() {
             ))}
           </ol>
         </div>
-      </div>
-      <div>
-        <Link to='/navmenu' className='link-navmenu-table'>
-          {MENU_LINK_TEXT}
-        </Link>
       </div>
     </div>
   );

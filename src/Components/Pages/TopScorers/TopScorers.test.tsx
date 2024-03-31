@@ -10,10 +10,8 @@ describe('TopScorers component', () => {
         <TopScorers />
       </MemoryRouter>
     );
-
-    expect(screen.getByText('Menú')).toBeInTheDocument();
     
     expect(screen.getByText('Top Scorers')).toBeInTheDocument();
-  });
+  }); 
 });
 

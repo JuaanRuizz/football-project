@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom';
+import "./TableCSS.css";
+import BurguerMenu from "../../Menu/Burguer_Menu";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -8,6 +9,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+
+const ESCUDO = 'Escudo'
+const POSICION = 'Posición'
+const EQUIPO = 'Equipo'
+const PUNTOS = 'Puntos'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -23,7 +29,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -41,7 +46,7 @@ interface TeamData {
 
 const fetchStandings = async () => {
   const response = await fetch(
-    "https://v3.football.api-sports.io/standings?league=239&season=2024",
+    "https://v3.football.api-sports.io/standings?league=239&season=2023",
     {
       method: "GET",
       headers: {
@@ -75,39 +80,41 @@ export default function CustomizedTables() {
 
   return (
     <div className="table">
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 500 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Escudo</StyledTableCell>
-              <StyledTableCell align="right">Posición</StyledTableCell>
-              <StyledTableCell align="right">Equipo</StyledTableCell>
-              <StyledTableCell align="right">Puntos</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {standings.map((team) => (
-              <StyledTableRow key={team.team.id}>
-                <StyledTableCell component="th" scope="row">
-                  <img
-                    src={team.team.logo}
-                    alt={team.team.name}
-                    width={30}
-                    height={30}
-                  />
-                </StyledTableCell>
-                <StyledTableCell align="right">{team.rank}</StyledTableCell>
-                <StyledTableCell align="right">{team.team.name}</StyledTableCell>
-                <StyledTableCell align="right">{team.points}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-      <div className="container-link-navmenu-table">
-        <Link to='/navmenu' className='link-navmenu-table'>
-          Menú
-        </Link>
+      <div className="burguer-menu">
+        <BurguerMenu></BurguerMenu>
+      </div>
+      <div className="table-container">
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>{ESCUDO}</StyledTableCell>
+                <StyledTableCell align="right">{POSICION}</StyledTableCell>
+                <StyledTableCell align="right">{EQUIPO}</StyledTableCell>
+                <StyledTableCell align="right">{PUNTOS}</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {standings.map((team) => (
+                <StyledTableRow key={team.team.id}>
+                  <StyledTableCell component="th" scope="row">
+                    <img
+                      src={team.team.logo}
+                      alt={team.team.name}
+                      width={30}
+                      height={30}
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{team.rank}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    {team.team.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{team.points}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
     </div>
   );

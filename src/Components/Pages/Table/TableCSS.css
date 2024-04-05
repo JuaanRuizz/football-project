@@ -1,0 +1,17 @@
+.table {
+  position: relative;
+}
+
+.burguer-menu {
+  position: relative;
+  z-index: 1; 
+}
+
+.table-container {
+  position: absolute;
+  top: calc(
+    17% + 10px
+  ); 
+  left: 0;
+  width: 100%;
+}

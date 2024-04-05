@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import './TableCSS.css';
-import BurguerMenu from '../../Menu/Burguer_Menu';
+import "./TableCSS.css";
+import BurguerMenu from "../../Menu/Burguer_Menu";
 import { styled } from "@mui/material/styles";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -9,6 +9,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+
+const ESCUDO = 'Escudo'
+const POSICION = 'Posición'
+const EQUIPO = 'Equipo'
+const PUNTOS = 'Puntos'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -75,38 +80,42 @@ export default function CustomizedTables() {
 
   return (
     <div className="table">
-      <div>
+      <div className="burguer-menu">
         <BurguerMenu></BurguerMenu>
       </div>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 500 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              <StyledTableCell>Escudo</StyledTableCell>
-              <StyledTableCell align="right">Posición</StyledTableCell>
-              <StyledTableCell align="right">Equipo</StyledTableCell>
-              <StyledTableCell align="right">Puntos</StyledTableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {standings.map((team) => (
-              <StyledTableRow key={team.team.id}>
-                <StyledTableCell component="th" scope="row">
-                  <img
-                    src={team.team.logo}
-                    alt={team.team.name}
-                    width={30}
-                    height={30}
-                  />
-                </StyledTableCell>
-                <StyledTableCell align="right">{team.rank}</StyledTableCell>
-                <StyledTableCell align="right">{team.team.name}</StyledTableCell>
-                <StyledTableCell align="right">{team.points}</StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+      <div className="table-container">
+        <TableContainer component={Paper}>
+          <Table sx={{ minWidth: 500 }} aria-label="customized table">
+            <TableHead>
+              <TableRow>
+                <StyledTableCell>{ESCUDO}</StyledTableCell>
+                <StyledTableCell align="right">{POSICION}</StyledTableCell>
+                <StyledTableCell align="right">{EQUIPO}</StyledTableCell>
+                <StyledTableCell align="right">{PUNTOS}</StyledTableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {standings.map((team) => (
+                <StyledTableRow key={team.team.id}>
+                  <StyledTableCell component="th" scope="row">
+                    <img
+                      src={team.team.logo}
+                      alt={team.team.name}
+                      width={30}
+                      height={30}
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{team.rank}</StyledTableCell>
+                  <StyledTableCell align="right">
+                    {team.team.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="right">{team.points}</StyledTableCell>
+                </StyledTableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
   );
 }

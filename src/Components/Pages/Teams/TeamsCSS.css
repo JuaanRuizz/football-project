@@ -1,3 +1,18 @@
+.container-teams{
+  position: relative;
+}
+.burguer-menu {
+  position: relative;
+  z-index: 1; 
+}
+.container-info-teams{
+  position: absolute;
+  top: calc(
+    12% + 10px
+  ); 
+  left: 0;
+  width: 100%;
+}
 .header-teams {
   display: flex;
   align-items: center;

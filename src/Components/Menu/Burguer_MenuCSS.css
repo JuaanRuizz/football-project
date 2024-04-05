@@ -6,7 +6,7 @@
 
 nav {
   width: 100%;
-  height: 80px;
+  height: 70px;
   background-color: var(--secondary-blue);
   display: flex;
   justify-content: flex-start;
@@ -33,7 +33,7 @@ nav {
 
 .menu {
   width: 50%; 
-  height: 100vh;
+  height: 100%;
   background-color: var(--secondary-blue);
   position: absolute;
   top: 0;
@@ -74,10 +74,10 @@ nav {
   margin-top: 250px; 
 }
 
-.links-home,
-.links-table,
-.links-players,
-.links-teams {
+.links-to-home,
+.links-to-table,
+.links-to-teams, 
+.links-to-players{
   width: 60%;
   margin: 20px;
   color: black;
@@ -89,10 +89,10 @@ nav {
   padding: 12px;
 }
 
-.links-home :hover,
-.links-table :hover,
-.links-players :hover,
-.links-teams :hover{
+.links-to-home :hover,
+.links-to-table :hover,
+.links-to-players :hover,
+.links-to-teams :hover{
     opacity: 0.7;
 }
 

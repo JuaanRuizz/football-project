@@ -13,25 +13,27 @@ const TOP_YELLLOW_CARDS = 'Más tarjetas amarillas';
 const Players = () => {
   return (
     <div className='players-container'>
-      <div>
+      <div className='burguer-menu'>
         <BurguerMenu></BurguerMenu>
       </div>
-      <div className='players-header'>
-        <img className='logo-players' src={Logo} alt='Logo' />
-        <h1 className='players-title'>{PLAYERS_TITLE}</h1>
+      <div className='players-info-container'>
+        <div className='players-header'>
+          <img className='logo-players' src={Logo} alt='Logo' />
+          <h1 className='players-title'>{PLAYERS_TITLE}</h1>
+        </div>
+        <div className='players-links-container'>
+          <Link to='/scorers' className='links-players'>
+            {TOP_SCORERS}
+          </Link>
+          <Link to='/assists' className='links-players'>
+            {TOP_ASSISTS}
+          </Link>
+          <Link to='/yellowcards' className='links-players'>
+            {TOP_YELLLOW_CARDS}
+          </Link>
+        </div>
+        <img className='img-footer' src={Footer} alt="footer" />
       </div>
-      <div className='payers-links-container'>
-        <Link to='/scorers' className='links-players'>
-          {TOP_SCORERS}
-        </Link>
-        <Link to='/assists' className='links-players'>
-          {TOP_ASSISTS}
-        </Link>
-        <Link to='/yellowcards' className='links-players'>
-          {TOP_YELLLOW_CARDS}
-        </Link>
-      </div>
-      <img className='img-footer' src={Footer} alt="footer" />
     </div>
   );
 };

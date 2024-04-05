@@ -38,16 +38,16 @@ const BurguerMenu = () => {
 
       <div className={menu_class}>
         <div className="menu-links">
-          <Link to="/home" className="links-home" onClick={closeMenu}>
+          <Link to="/home" className="links-to-home" onClick={closeMenu}>
             Home
           </Link>
-          <Link to="/table" className="links-table" onClick={closeMenu}>
+          <Link to="/table" className="links-to-table" onClick={closeMenu}>
             Tabla de Posiciones
           </Link>
-          <Link to="/teams" className="links-teams" onClick={closeMenu}>
+          <Link to="/teams" className="links-to-teams" onClick={closeMenu}>
             Equipos
           </Link>
-          <Link to="/players" className="links-players" onClick={closeMenu}>
+          <Link to="/players" className="links-to-players" onClick={closeMenu}>
             Jugadores
           </Link>
         </div>

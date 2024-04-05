@@ -61,34 +61,36 @@ export default function CustomizedList() {
 
   return (
     <div className="container-teams">
-      <div>
+      <div className="burguer-menu">
         <BurguerMenu></BurguerMenu>
       </div>
-      <div className="header-teams">
-        <img className='logo-teams' src={Logo} alt='Logo' />
-        <h1 className="header-teams-title">{HEADER_TITLE}</h1>
-      </div>
-      <div className="container-list">
-        <ol className="teams-list">
-          {standings.map((team) => (
-            <li key={team.team.id} className="items-list-teams">
-              <img
-                src={team.team.logo}
-                alt={team.team.name}
-                width={30}
-                height={30}
-              />
-              {team.team.name}
-            </li>
-          ))}
-        </ol>
-        <div className="interesting-facts-container">
-          <h2 className="interesting-facts-title">{INTERESTING_FACTS_TITLE}</h2>
-          <ol className="interesting-facts-list">
-            {FACTS_LIST.map((fact, index) => (
-              <li key={index}>{fact}</li>
+      <div className="container-info-teams">
+        <div className="header-teams">
+          <img className='logo-teams' src={Logo} alt='Logo' />
+          <h1 className="header-teams-title">{HEADER_TITLE}</h1>
+        </div>
+        <div className="container-list">
+          <ol className="teams-list">
+            {standings.map((team) => (
+              <li key={team.team.id} className="items-list-teams">
+                <img
+                  src={team.team.logo}
+                  alt={team.team.name}
+                  width={30}
+                  height={30}
+                />
+                {team.team.name}
+              </li>
             ))}
           </ol>
+          <div className="interesting-facts-container">
+            <h2 className="interesting-facts-title">{INTERESTING_FACTS_TITLE}</h2>
+            <ol className="interesting-facts-list">
+              {FACTS_LIST.map((fact, index) => (
+                <li key={index}>{fact}</li>
+              ))}
+            </ol>
+          </div>
         </div>
       </div>
     </div>

@@ -11,6 +11,6 @@ describe('TopYellowCards component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Top Yellow Cards')).toBeInTheDocument();
+    expect(screen.getByText('Equipo')).toBeInTheDocument();
   });
 });

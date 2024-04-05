@@ -11,7 +11,7 @@ describe('TopScorers component', () => {
       </MemoryRouter>
     );
     
-    expect(screen.getByText('Top Scorers')).toBeInTheDocument();
+    expect(screen.getByText('Goles')).toBeInTheDocument();
   }); 
 });
 

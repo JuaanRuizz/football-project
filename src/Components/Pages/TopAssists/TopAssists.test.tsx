@@ -11,6 +11,6 @@ describe('TopAssists component', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('Top Assists')).toBeInTheDocument();
+    expect(screen.getByText('Asistencias')).toBeInTheDocument();
   });
 });

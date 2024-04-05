@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './PlayersCSS.css';
 import Logo from '../../../Assets/Logo-LB3.png';
-import Footer from "../../../Assets/Footer.png";
 import BurguerMenu from '../../Menu/Burguer_Menu';
 
 const PLAYERS_TITLE = 'ESTADÍSTICAS DE JUGADORES'
@@ -11,12 +10,18 @@ const TOP_ASSISTS = 'Máximos asistidores';
 const TOP_YELLLOW_CARDS = 'Más tarjetas amarillas';
 
 const Players = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(prevState => !prevState);
+  };
+
   return (
     <div className='players-container'>
-      <div className='burguer-menu'>
+      <div className='burguer-menu' onClick={toggleMenu}>
         <BurguerMenu></BurguerMenu>
       </div>
-      <div className='players-info-container'>
+      <div className={`players-info-container ${menuOpen ? 'menu-open' : ''}`}>
         <div className='players-header'>
           <img className='logo-players' src={Logo} alt='Logo' />
           <h1 className='players-title'>{PLAYERS_TITLE}</h1>
@@ -32,7 +37,6 @@ const Players = () => {
             {TOP_YELLLOW_CARDS}
           </Link>
         </div>
-        <img className='img-footer' src={Footer} alt="footer" />
       </div>
     </div>
   );

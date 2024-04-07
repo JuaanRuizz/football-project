@@ -42,7 +42,7 @@ interface TeamData {
 
 const fetchStandings = async () => {
   const response = await fetch(
-    "https://v3.football.api-sports.io/standings?league=239&season=2023",
+    "https://v3.football.api-sports.io/standings?league=239&season=2024", //No se puede con 2023 porque me envia los standigs del grupo A de lo cuadrangulares pasados 
     {
       method: "GET",
       headers: {

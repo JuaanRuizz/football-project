@@ -14,6 +14,7 @@ import Santafe from '../../../Assets/logo-santafe.png';
 import Tolima from '../../../Assets/logo-tolima.png';
 import Caldas from '../../../Assets/logo-caldas.png';
 import Trofeo from '../../../Assets/Tofeo-Liga.png';
+import { MENU_INFO } from './Strings_NavMenu';
 
 const NavMenu: React.FC = () => {
     return (
@@ -23,27 +24,27 @@ const NavMenu: React.FC = () => {
                     <img className='logo-navmenu' src={Logo} alt='Logo' />
                 </div>
                 <div className='title-navmenu-container'>
-                    <h1 className='title-navmenu'>Liga BetPlay Dimayor</h1>
-                    <h3 className='find-text'>Encuentra...</h3>
+                    <h1 className='title-navmenu'>{MENU_INFO.TITLE}</h1>
+                    <h3 className='find-text'>{MENU_INFO.FIND_TEXT}</h3>
                 </div>
                 <div className='menu-container'>
                     <div className='links-container'>
                         <Link to='/home' className='link-home'>
-                            Home
+                            {MENU_INFO.HOME}
                         </Link>
                         <Link to='/table' className='link-table'>
-                            Tabla de Posiciones
+                            {MENU_INFO.TABLE}
                         </Link>
                         <Link to='/teams' className='link-teams'>
-                            Equipos
+                            {MENU_INFO.TEAMS}
                         </Link>
                         <Link to='/players' className='link-players'>
-                            Jugadores
+                            {MENU_INFO.PLAYERS}
                         </Link>
                     </div>
                 </div>
                 <div className='footer-general'>
-                    <h5>Liga BetPlay Dimayor</h5>
+                    <h5>{MENU_INFO.FOOTER}</h5>
                 </div>
             </div>
 
@@ -70,3 +71,4 @@ const NavMenu: React.FC = () => {
 };
 
 export default NavMenu;
+

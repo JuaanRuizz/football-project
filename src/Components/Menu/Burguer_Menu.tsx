@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Burguer_MenuCSS.css";
+import { MENU_ITEMS } from "./Strings_NavMenu";
 
 const BurguerMenu = () => {
-  
-  const [burger_class, setBurgerClass] = useState("burger-bar unclicked");
-  const [menu_class, setMenuClass] = useState("menu hidden");
+  const [burgerClass, setBurgerClass] = useState("burger-bar unclicked");
+  const [menuClass, setMenuClass] = useState("menu hidden");
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
-  
   const updateMenu = () => {
     if (!isMenuClicked) {
       setBurgerClass("burger-bar clicked");
@@ -30,25 +29,25 @@ const BurguerMenu = () => {
     <div style={{ width: "100%", height: "100vh" }}>
       <nav>
         <div className="burger-menu" onClick={updateMenu}>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
-          <div className={burger_class}></div>
+          <div className={burgerClass}></div>
+          <div className={burgerClass}></div>
+          <div className={burgerClass}></div>
         </div>
       </nav>
 
-      <div className={menu_class}>
+      <div className={menuClass}>
         <div className="menu-links">
           <Link to="/home" className="links-to-home" onClick={closeMenu}>
-            Home
+            {MENU_ITEMS.HOME}
           </Link>
           <Link to="/table" className="links-to-table" onClick={closeMenu}>
-            Tabla de Posiciones
+            {MENU_ITEMS.TABLE}
           </Link>
           <Link to="/teams" className="links-to-teams" onClick={closeMenu}>
-            Equipos
+            {MENU_ITEMS.TEAMS}
           </Link>
           <Link to="/players" className="links-to-players" onClick={closeMenu}>
-            Jugadores
+            {MENU_ITEMS.PLAYERS}
           </Link>
         </div>
       </div>

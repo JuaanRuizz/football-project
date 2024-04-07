@@ -9,11 +9,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-const ESCUDO = 'Escudo'
-const POSICION = 'Posición'
-const EQUIPO = 'Equipo'
-const PUNTOS = 'Puntos'
+import { TABLE_HEADERS, KEY } from "./Strings_table";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -51,7 +47,7 @@ const fetchStandings = async () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d5611bbd164a7f20c1111f1553f32fb5",
+        "x-rapidapi-key": KEY || "",
       },
     }
   );
@@ -88,10 +84,10 @@ export default function CustomizedTables() {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>{ESCUDO}</StyledTableCell>
-                <StyledTableCell align="right">{POSICION}</StyledTableCell>
-                <StyledTableCell align="right">{EQUIPO}</StyledTableCell>
-                <StyledTableCell align="right">{PUNTOS}</StyledTableCell>
+                <StyledTableCell>{TABLE_HEADERS.ESCUDO}</StyledTableCell>
+                <StyledTableCell align="right">{TABLE_HEADERS.POSICION}</StyledTableCell>
+                <StyledTableCell align="right">{TABLE_HEADERS.EQUIPO}</StyledTableCell>
+                <StyledTableCell align="right">{TABLE_HEADERS.PUNTOS}</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

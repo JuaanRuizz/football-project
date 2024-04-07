@@ -8,13 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import {KEY} from "../TopAssists/key"
-
-const POSICION = 'Posición';
-const NOMBRE = 'Nombre';
-const EDAD = 'Edad';
-const EQUIPO = 'Equipo';
-const TARJETAS_AMARILLAS = 'Tarjetas amarillas';
+import {KEY, YC_HEADERS} from "./Strings_YC"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -99,12 +93,12 @@ const TopYellowCards: React.FC = () => {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>{POSICION}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.POSICION}</StyledTableCell>
                 <StyledTableCell></StyledTableCell>
-                <StyledTableCell>{NOMBRE}</StyledTableCell>
-                <StyledTableCell>{EDAD}</StyledTableCell>
-                <StyledTableCell>{EQUIPO}</StyledTableCell>
-                <StyledTableCell>{TARJETAS_AMARILLAS}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.NOMBRE}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.EDAD}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.EQUIPO}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.TARJETAS_AMARILLAS}</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

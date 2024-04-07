@@ -8,13 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import {KEY} from "./key"
-
-const POSICION = 'Posición';
-const NOMBRE = 'Nombre';
-const EDAD = 'Edad';
-const EQUIPO = 'Equipo';
-const ASISTENCIAS = 'Asistencias';
+import {KEY, ASSISTS_HEADERS} from "./Strings_Assists"
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -99,12 +93,12 @@ const TopAssists: React.FC = () => {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>{POSICION}</StyledTableCell>
+                <StyledTableCell>{ASSISTS_HEADERS.POSICION}</StyledTableCell>
                 <StyledTableCell></StyledTableCell>
-                <StyledTableCell>{NOMBRE}</StyledTableCell>
-                <StyledTableCell>{EDAD}</StyledTableCell>
-                <StyledTableCell>{EQUIPO}</StyledTableCell>
-                <StyledTableCell>{ASISTENCIAS}</StyledTableCell>
+                <StyledTableCell>{ASSISTS_HEADERS.NOMBRE}</StyledTableCell>
+                <StyledTableCell>{ASSISTS_HEADERS.EDAD}</StyledTableCell>
+                <StyledTableCell>{ASSISTS_HEADERS.EQUIPO}</StyledTableCell>
+                <StyledTableCell>{ASSISTS_HEADERS.ASISTENCIAS}</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

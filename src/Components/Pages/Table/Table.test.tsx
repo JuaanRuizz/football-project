@@ -36,7 +36,7 @@ describe('Table component', () => {
       expect(screen.getByText('Puntos')).toBeInTheDocument();
       expect(screen.getByText('Equipo')).toBeInTheDocument();
       expect(screen.getByText('Alianza Petrolera')).toBeInTheDocument();
-      // expect(screen.getByText('0')).toBeInTheDocument();
+      // expect(screen.getByText('1')).toBeInTheDocument();
     });
   });
 });

@@ -8,6 +8,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import {KEY} from "../TopAssists/key"
 
 const POSICION = 'Posición';
 const NOMBRE = 'Nombre';
@@ -58,7 +59,7 @@ const fetchTopScorers = async () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d5611bbd164a7f20c1111f1553f32fb5",
+        "x-rapidapi-key": KEY || "",
       },
     }
   );

@@ -59,20 +59,23 @@ export default function CustomizedTables() {
   const [standings, setStandings] = useState<TeamData[]>([]);
 
   useEffect(() => {
-    const standingsData = localStorage.getItem("standingsData");
-    if (standingsData) {
-      setStandings(JSON.parse(standingsData));
-    } else {
-      fetchStandings()
-        .then((data) => {
+    const fetchData = async () => {
+      try {
+        const standingsData = localStorage.getItem("standingsData");
+        if (standingsData) {
+          setStandings(JSON.parse(standingsData));
+        } else {
+          const data = await fetchStandings();
           setStandings(data);
           localStorage.setItem("standingsData", JSON.stringify(data));
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
-  }, []);
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []); // Empty dependency array ensures effect runs only once
 
   return (
     <div className="table">
@@ -98,7 +101,8 @@ export default function CustomizedTables() {
                       src={team.team.logo}
                       alt={team.team.name}
                       width={30}
-                      height={30}
+                      height={30} 
+                      data-testid={`img-table-${team.team.id}`}                  
                     />
                   </StyledTableCell>
                   <StyledTableCell align="right">{team.rank}</StyledTableCell>

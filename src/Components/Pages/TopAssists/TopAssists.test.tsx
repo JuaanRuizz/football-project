@@ -5,7 +5,6 @@ import { BrowserRouter } from 'react-router-dom';
 import fetchMock from 'jest-fetch-mock';
 import TopAssists from './TopAssists';
 
-// Mock de los datos de la API para TopAssists
 const mockTopAssistsData = [
   {
     player: {
@@ -48,7 +47,7 @@ beforeEach(() => {
 });
 
 describe('TopAssists component', () => {
-  test('renders TopAssists component', async () => {
+  test('renders TopAssists component with player information', async () => {
     fetchMock.mockResponseOnce(JSON.stringify(mockTopAssistsData));
 
     render(
@@ -57,12 +56,12 @@ describe('TopAssists component', () => {
       </BrowserRouter>
     );
 
+    expect(screen.getByText('Posición')).toBeInTheDocument();
+    expect(screen.getByText('Nombre')).toBeInTheDocument();
+    expect(screen.getByText('Edad')).toBeInTheDocument();
+    expect(screen.getByText('Equipo')).toBeInTheDocument();
+    expect(screen.getByText('Asistencias')).toBeInTheDocument();
     await waitFor(() => {
-      expect(screen.getByText('Posición')).toBeInTheDocument();
-      expect(screen.getByText('Nombre')).toBeInTheDocument();
-      expect(screen.getByText('Edad')).toBeInTheDocument();
-      expect(screen.getByText('Equipo')).toBeInTheDocument();
-      expect(screen.getByText('Asistencias')).toBeInTheDocument();
       expect(screen.getByText('D. Quintero')).toBeInTheDocument();
       expect(screen.getByText('E. Torres')).toBeInTheDocument();
       // expect(screen.getByText('13')).toBeInTheDocument();

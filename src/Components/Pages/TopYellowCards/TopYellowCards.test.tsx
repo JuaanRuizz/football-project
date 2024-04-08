@@ -2,8 +2,8 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
-import fetchMock from 'jest-fetch-mock';
 import TopYellowCards from './TopYellowCards';
+import fetchMock from 'jest-fetch-mock';
 
 // Mock de los datos de la API para TopYellowCards
 const mockTopYellowCardsData = [
@@ -48,7 +48,7 @@ beforeEach(() => {
 });
 
 describe('TopYellowCards component', () => {
-  test('renders TopYellowCards component', async () => {
+  test('renders TopYellowCards component with player information', async () => {
     fetchMock.mockResponseOnce(JSON.stringify(mockTopYellowCardsData));
 
     render(
@@ -57,16 +57,16 @@ describe('TopYellowCards component', () => {
       </BrowserRouter>
     );
 
+    expect(screen.getByText('Posición')).toBeInTheDocument();
+    expect(screen.getByText('Nombre')).toBeInTheDocument(); 
+    expect(screen.getByText('Edad')).toBeInTheDocument();
+    expect(screen.getByText('Equipo')).toBeInTheDocument(); 
+    expect(screen.getByText('Tarjetas Amarillas')).toBeInTheDocument(); 
     await waitFor(() => {
-      expect(screen.getByText('Posición')).toBeInTheDocument();
-      expect(screen.getByText('Nombre')).toBeInTheDocument();
-      expect(screen.getByText('Edad')).toBeInTheDocument();
-      expect(screen.getByText('Equipo')).toBeInTheDocument();
-      expect(screen.getByText('Tarjetas Amarillas')).toBeInTheDocument();
-      expect(screen.getByText('M. Puerta')).toBeInTheDocument();
+      expect(screen.getByText('M. Puerta')).toBeInTheDocument(); 
       expect(screen.getByText('J. Quiñónes')).toBeInTheDocument();
-      // expect(screen.getByText('5')).toBeInTheDocument();
-      // expect(screen.getByText('3')).toBeInTheDocument();
+      // expect(screen.getByText('20')).toBeInTheDocument(); 
+      // expect(screen.getByText('16')).toBeInTheDocument(); 
     });
   });
 });

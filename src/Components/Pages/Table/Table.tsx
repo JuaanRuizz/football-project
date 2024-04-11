@@ -97,11 +97,9 @@ export default function CustomizedTables() {
               {standings.map((team) => (
                 <StyledTableRow key={team.team.id}>
                   <StyledTableCell component="th" scope="row">
-                    <img
+                    <img className="img-table"
                       src={team.team.logo}
-                      alt={team.team.name}
-                      width={30}
-                      height={30} 
+                      alt={team.team.name} 
                       data-testid={`img-table-${team.team.id}`}                  
                     />
                   </StyledTableCell>

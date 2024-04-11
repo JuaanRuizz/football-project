@@ -42,7 +42,7 @@ describe('Table component', () => {
     
     await waitFor(() => {
       expect(screen.getByText('Alianza Petrolera')).toBeInTheDocument();
-      // expect(screen.getByTestId(`img-table-${mockStandingsData[0].team.id}`)).toBeInTheDocument();
+      expect(screen.getByTestId(`img-table-${mockStandingsData[0].team.id}`)).toBeVisible();
       expect(screen.getByText('1')).toBeInTheDocument();
     });
   });

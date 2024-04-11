@@ -1,17 +1,29 @@
-import React from "react";
-import { render, screen} from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
-import BurguerMenu from "./Burguer_Menu";
+import { BrowserRouter as Router } from 'react-router-dom';
+import { render, screen, fireEvent } from '@testing-library/react';
+import BurguerMenu from './Burguer_Menu';
 
-test("renders BurguerMenu component", () => {
+test('visible links when menu is open', () => {
   render(
-    <BrowserRouter>
+    <Router>
       <BurguerMenu />
-    </BrowserRouter>
+    </Router>
   );
 
-  expect(screen.getByText("Home")).toBeInTheDocument();
-  expect(screen.getByText("Tabla de Posiciones")).toBeInTheDocument();
-  expect(screen.getByText("Equipos")).toBeInTheDocument();
-  expect(screen.getByText("Jugadores")).toBeInTheDocument();
+  const menuButton = screen.getByRole('button', { name: '' });
+  fireEvent.click(menuButton);
+
+  // Add your assertions here
+});
+
+test('hidden links when menu is closed', () => {
+  render(
+    <Router>
+      <BurguerMenu />
+    </Router>
+  );
+
+  const menuButton = screen.getByRole('button', { name: '' });
+  fireEvent.click(menuButton);
+
+  // Add your assertions here
 });

@@ -22,9 +22,6 @@
   border-radius: 50px;
   padding: 40px;
 }
-.players-info-container.menu-open {
-  transform: translateY(590px);
-}
 
 .links-players {
   padding: 0px;

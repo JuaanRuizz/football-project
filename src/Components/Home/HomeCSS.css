@@ -3,7 +3,7 @@
 }
 .burguer-menu {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 .home-page {
   position: absolute;
@@ -11,3 +11,5 @@
   left: 0;
   width: 100%;
 }
+
+

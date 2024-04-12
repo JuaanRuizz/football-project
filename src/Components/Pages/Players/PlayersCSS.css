@@ -3,11 +3,11 @@
 }
 .burguer-menu {
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 .players-info-container {
   position: absolute;
-  top: calc(10% + 10px);
+  top: calc(85% + 10px);
   left: 0;
   width: 100%; 
 }

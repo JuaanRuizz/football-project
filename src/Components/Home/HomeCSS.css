@@ -7,7 +7,7 @@
 }
 .home-page {
   position: absolute;
-  top: calc(8% + 10px);
+  top: calc(70% + 10px);
   left: 0;
   width: 100%;
 }

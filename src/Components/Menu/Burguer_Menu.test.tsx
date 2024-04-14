@@ -1,29 +1,52 @@
-import { BrowserRouter as Router } from 'react-router-dom';
-import { render, screen, fireEvent } from '@testing-library/react';
-import BurguerMenu from './Burguer_Menu';
+/* eslint-disable testing-library/prefer-screen-queries */
+import React from "react";
+import { render, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+import { BrowserRouter as Router } from "react-router-dom";
 
-test('visible links when menu is open', () => {
-  render(
-    <Router>
-      <BurguerMenu />
-    </Router>
-  );
+import BurguerMenu from "./Burguer_Menu";
 
-  const menuButton = screen.getByRole('button', { name: '' });
-  fireEvent.click(menuButton);
+describe("BurguerMenu component", () => {
+  test("renders menu initially hidden", () => {
+    const { getByTestId } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+    const menu = getByTestId("menu");
+    expect(menu).toHaveClass("hidden");
+  });
 
-  // Add your assertions here
-});
+  test("clicking burger menu toggles menu visibility", () => {
+    const { getByTestId } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
 
-test('hidden links when menu is closed', () => {
-  render(
-    <Router>
-      <BurguerMenu />
-    </Router>
-  );
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
 
-  const menuButton = screen.getByRole('button', { name: '' });
-  fireEvent.click(menuButton);
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("hidden");
+  });
 
-  // Add your assertions here
+  test("clicking menu item closes menu", () => {
+    const { getByTestId, getByText } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
+    const homeLink = getByText("Home");
+
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+
+    fireEvent.click(homeLink);
+    expect(menu).toHaveClass("hidden");
+  });
 });

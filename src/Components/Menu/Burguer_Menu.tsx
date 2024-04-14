@@ -28,14 +28,14 @@ const BurguerMenu = () => {
   return (
     <div style={{ width: "100%", height: "50%" }}>
       <nav>
-        <div className="burger-menu" onClick={updateMenu}>
+        <div className="burger-menu" onClick={updateMenu} data-testid="burger-menu">
           <div className={burgerClass}></div>
           <div className={burgerClass}></div>
           <div className={burgerClass}></div>
         </div>
       </nav>
 
-      <div className={menuClass}>
+      <div className={menuClass} data-testid="menu">
         <div className="menu-links">
           <Link to="/home" className="links-to-home" onClick={closeMenu}>
             {MENU_ITEMS.HOME}

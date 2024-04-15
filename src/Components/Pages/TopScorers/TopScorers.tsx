@@ -63,6 +63,7 @@ const fetchTopScorers = async () => {
 
 const TopScorers: React.FC = () => {
   const [topScorers, setTopScorers] = useState<Player[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,11 +78,17 @@ const TopScorers: React.FC = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className='table'>

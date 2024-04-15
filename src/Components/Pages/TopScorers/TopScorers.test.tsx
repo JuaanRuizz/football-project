@@ -57,16 +57,14 @@ describe('TopScorers component', () => {
       </BrowserRouter>
     );
 
-    expect(screen.getByText('Posición')).toBeInTheDocument(); 
-    expect(screen.getByText('Nombre')).toBeInTheDocument(); 
-    expect(screen.getByText('Edad')).toBeInTheDocument(); 
-    expect(screen.getByText('Equipo')).toBeInTheDocument(); 
-    expect(screen.getByText('Goles')).toBeInTheDocument(); 
     await waitFor(() => {
+      expect(screen.getByText('Posición')).toBeInTheDocument(); 
+      expect(screen.getByText('Nombre')).toBeInTheDocument(); 
+      expect(screen.getByText('Edad')).toBeInTheDocument(); 
+      expect(screen.getByText('Equipo')).toBeInTheDocument(); 
+      expect(screen.getByText('Goles')).toBeInTheDocument(); 
       expect(screen.getByText('M. Pérez')).toBeInTheDocument(); 
-      expect(screen.getByText('D. Moreno')).toBeInTheDocument(); 
-      // expect(screen.getByText('28')).toBeInTheDocument(); 
-      // expect(screen.getByText('20')).toBeInTheDocument(); 
+      expect(screen.getByText('D. Moreno')).toBeInTheDocument();  
     });
   });
 });

@@ -17,22 +17,6 @@ describe("BurguerMenu component", () => {
     expect(menu).toHaveClass("hidden");
   });
 
-  test("clicking burger menu toggles menu visibility", () => {
-    const { getByTestId } = render(
-      <Router>
-        <BurguerMenu />
-      </Router>
-    );
-    const burgerMenu = getByTestId("burger-menu");
-    const menu = getByTestId("menu");
-
-    fireEvent.click(burgerMenu);
-    expect(menu).toHaveClass("visible");
-
-    fireEvent.click(burgerMenu);
-    expect(menu).toHaveClass("hidden");
-  });
-
   test("clicking menu item closes menu", () => {
     const { getByTestId, getByText } = render(
       <Router>

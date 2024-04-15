@@ -11,7 +11,7 @@ const mockStandingsData = [{
   "team": {
     "id": 1,
     "name": "Alianza Petrolera",
-    "logo": "logo-equipo-a.png"
+    "logo": "https://media.api-sports.io/football/teams/1141.png"
   },
   "rank": 1,
   "points": 0
@@ -24,26 +24,30 @@ beforeEach(() => {
 describe('Table component', () => {
   beforeEach(() => {
     fetchMock.resetMocks();
-    localStorage.clear(); // Limpia localStorage antes de cada prueba
+    localStorage.clear(); 
   });
 
-  test('renders Table component', async () => {
+  test('renders Table component with images', async () => {
     fetchMock.mockResponseOnce(JSON.stringify({ response: [{ league: { standings: mockStandingsData } }] }));
-
+  
     render(
       <BrowserRouter> 
         <Table />
       </BrowserRouter>
     );
-    expect(screen.getByText('Escudo')).toBeInTheDocument();
-    expect(screen.getByText('Posición')).toBeInTheDocument();
-    expect(screen.getByText('Puntos')).toBeInTheDocument();
-    expect(screen.getByText('Equipo')).toBeInTheDocument();
-    
+  
     await waitFor(() => {
-      expect(screen.getByText('Alianza Petrolera')).toBeInTheDocument();
-      // expect(screen.getByTestId(`img-table-${mockStandingsData[0].team.id}`)).toBeVisible();
-      expect(screen.getByText('1')).toBeInTheDocument();
+      expect(screen.getByText('Escudo')).toBeInTheDocument();
+      expect(screen.getByText('Posición')).toBeInTheDocument();
+      expect(screen.getByText('Puntos')).toBeInTheDocument();
+      expect(screen.getByText('Equipo')).toBeInTheDocument();
     });
+  
+    const specificImageData = mockStandingsData[0];
+    const specificImage = screen.getByAltText(specificImageData.team.name);
+    expect(specificImage).toBeInTheDocument();
+    expect(specificImage).toHaveAttribute('src', specificImageData.team.logo);
+  
+    expect(screen.getByText('1')).toBeInTheDocument();
   });
 });

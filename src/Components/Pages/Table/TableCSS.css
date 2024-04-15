@@ -10,7 +10,7 @@
 .table-container {
   position: absolute;
   top: calc(
-    17% + 10px
+    80% + 10px
   ); 
   left: 0;
   width: 100%;

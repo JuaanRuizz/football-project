@@ -42,7 +42,7 @@ interface TeamData {
 
 const fetchStandings = async () => {
   const response = await fetch(
-    "https://v3.football.api-sports.io/standings?league=239&season=2024", //No se puede con 2023 porque me envia los standigs del grupo A de lo cuadrangulares pasados 
+    "https://v3.football.api-sports.io/standings?league=239&season=2024",
     {
       method: "GET",
       headers: {
@@ -57,6 +57,7 @@ const fetchStandings = async () => {
 
 export default function CustomizedTables() {
   const [standings, setStandings] = useState<TeamData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,11 +72,17 @@ export default function CustomizedTables() {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
-  }, []); // Empty dependency array ensures effect runs only once
+  }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="table">
@@ -97,16 +104,15 @@ export default function CustomizedTables() {
               {standings.map((team) => (
                 <StyledTableRow key={team.team.id}>
                   <StyledTableCell component="th" scope="row">
-                    <img className="img-table"
+                    <img
+                      className="img-table"
                       src={team.team.logo}
-                      alt={team.team.name} 
-                      data-testid={`img-table-${team.team.id}`}                  
+                      alt={team.team.name}
+                      data-testid={`img-table-${team.team.id}`}
                     />
                   </StyledTableCell>
                   <StyledTableCell align="right">{team.rank}</StyledTableCell>
-                  <StyledTableCell align="right">
-                    {team.team.name}
-                  </StyledTableCell>
+                  <StyledTableCell align="right">{team.team.name}</StyledTableCell>
                   <StyledTableCell align="right">{team.points}</StyledTableCell>
                 </StyledTableRow>
               ))}

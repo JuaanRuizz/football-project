@@ -3,6 +3,7 @@ import BurguerMenu from '../../Menu/Burguer_Menu';
 import './TeamsCSS.css';
 import Logo from '../../../Assets/Logo-LB3.png';
 import { KEY, HEADER_TITLE, INTERESTING_FACTS_TITLE, FACTS_LIST } from "./Strings_teams";
+import Spinner from "../../Spinner/spinner";
 
 interface Team {
   id: number;
@@ -57,7 +58,11 @@ const Teams: React.FC = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return(
+    <div className="spinner-container">
+      <Spinner></Spinner>
+    </div>
+  );
   }
 
   return (

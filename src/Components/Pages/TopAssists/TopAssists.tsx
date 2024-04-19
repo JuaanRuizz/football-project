@@ -9,6 +9,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { KEY, ASSISTS_HEADERS } from "./Strings_Assists";
+import Spinner from '../../Spinner/spinner';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -87,7 +88,11 @@ const TopAssists: React.FC = () => {
   }, []);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return(
+    <div className='spinner-container'>
+      <Spinner></Spinner>
+    </div>
+  ); 
   }
 
   return (

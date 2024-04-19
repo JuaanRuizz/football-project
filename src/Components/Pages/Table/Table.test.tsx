@@ -6,7 +6,6 @@ import Table from './Table';
 import fetchMock from 'jest-fetch-mock';
 import 'jest-localstorage-mock'; 
 
-// Mock de los datos de la API para Table
 const mockStandingsData = [{
   "team": {
     "id": 1,

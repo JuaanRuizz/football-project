@@ -16,8 +16,6 @@ interface TeamData {
   points: number;
 }
 
-
-
 const fetchStandings = async () => {
   const response = await fetch(
     "https://v3.football.api-sports.io/standings?league=239&season=2024",
@@ -35,22 +33,32 @@ const fetchStandings = async () => {
 
 const Teams: React.FC = () => {
   const [standings, setStandings] = useState<TeamData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const standingsData = localStorage.getItem("standingsData");
-    if (standingsData) {
-      setStandings(JSON.parse(standingsData));
-    } else {
-      fetchStandings()
-        .then((data) => {
+    const fetchData = async () => {
+      try {
+        const storedData = localStorage.getItem("standingsData");
+        if (storedData) {
+          setStandings(JSON.parse(storedData));
+        } else {
+          const data = await fetchStandings();
           setStandings(data);
           localStorage.setItem("standingsData", JSON.stringify(data));
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="container-teams">

@@ -50,10 +50,10 @@ beforeEach(() => {
 describe('TopYellowCards component', () => {
   test('renders TopYellowCards component with player information', async () => {
     fetchMock.mockResponseOnce(JSON.stringify(mockTopYellowCardsData));
-
+    const value = true;
     render(
       <BrowserRouter>
-        <TopYellowCards />
+        <TopYellowCards responsive-height-comments={value.toString()}/>
       </BrowserRouter>
     );
 

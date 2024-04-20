@@ -17,6 +17,22 @@ describe("BurguerMenu component", () => {
     expect(menu).toHaveClass("hidden");
   });
 
+  test("clicking menu item toggles menu visibility", () => {
+    const { getByTestId } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
+
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("hidden");
+  });
+
   test("clicking menu item closes menu", () => {
     const { getByTestId, getByText } = render(
       <Router>
@@ -31,6 +47,67 @@ describe("BurguerMenu component", () => {
     expect(menu).toHaveClass("visible");
 
     fireEvent.click(homeLink);
+    expect(menu).toHaveClass("hidden");
+  });
+
+  test("clicking menu item closes menu and resets burger class", () => {
+    const { getByTestId, getByText } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
+    const homeLink = getByText("Home");
+
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+
+    fireEvent.click(homeLink);
+    expect(menu).toHaveClass("hidden");
+
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+  });
+
+  test("updateMenu toggles menu visibility and burger class", () => {
+    const { getByTestId } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
+
+    // Initial state
+    expect(menu).toHaveClass("hidden");
+
+    // Clicking burger menu to open menu
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+
+    // Clicking burger menu again to close menu
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("hidden");
+  });
+
+  test("closeMenu closes menu and resets burger class", () => {
+    const { getByTestId } = render(
+      <Router>
+        <BurguerMenu />
+      </Router>
+    );
+
+    const burgerMenu = getByTestId("burger-menu");
+    const menu = getByTestId("menu");
+
+    // Open menu first
+    fireEvent.click(burgerMenu);
+    expect(menu).toHaveClass("visible");
+
+    // Close menu
+    fireEvent.click(burgerMenu);
     expect(menu).toHaveClass("hidden");
   });
 });

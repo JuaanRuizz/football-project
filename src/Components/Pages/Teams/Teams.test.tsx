@@ -18,10 +18,10 @@ beforeEach(() => {
 
 test('renders Teams component', async () => {
   fetchMock.mockResponseOnce(JSON.stringify({ response: [{ league: { standings: [mockStandingsData] } }] }));
-
+  const value = true;
   render(
     <BrowserRouter> 
-      <Teams />
+      <Teams responsive-height-comments={value.toString()}/>
     </BrowserRouter>
   );
 

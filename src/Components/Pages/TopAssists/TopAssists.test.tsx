@@ -49,10 +49,10 @@ beforeEach(() => {
 describe('TopAssists component', () => {
   test('renders TopAssists component with player information', async () => {
     fetchMock.mockResponseOnce(JSON.stringify(mockTopAssistsData));
-
+    const value = true;
     render(
       <BrowserRouter>
-        <TopAssists />
+        <TopAssists responsive-height-comments={value.toString()}/>
       </BrowserRouter>
     );
 

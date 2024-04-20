@@ -9,6 +9,7 @@ const BurguerMenu = () => {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
 
   const updateMenu = () => {
+    console.log("updateMenu called");
     if (!isMenuClicked) {
       setBurgerClass("burger-bar clicked");
       setMenuClass("menu visible");
@@ -20,6 +21,7 @@ const BurguerMenu = () => {
   };
 
   const closeMenu = () => {
+    console.log("closeMenu called");
     setBurgerClass("burger-bar unclicked");
     setMenuClass("menu hidden");
     setIsMenuClicked(false);

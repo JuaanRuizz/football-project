@@ -13,6 +13,17 @@ import { TABLE_HEADERS, KEY } from "./Strings_table";
 import Spinner from "../../Spinner/spinner";
 
 
+interface TeamData {
+  team: {
+    id: number;
+    name: string;
+    logo: string;
+  };
+  rank: number;
+  points: number;
+}
+
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.primary.main,
@@ -23,6 +34,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }));
 
+
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
@@ -32,15 +44,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-interface TeamData {
-  team: {
-    id: number;
-    name: string;
-    logo: string;
-  };
-  rank: number;
-  points: number;
-}
 
 const fetchStandings = async () => {
   const response = await fetch(
@@ -57,9 +60,10 @@ const fetchStandings = async () => {
   return data.response[0].league.standings[0];
 };
 
-export default function CustomizedTables() {
+
+const CustomizedTables: React.FC = () => {
   const [standings, setStandings] = useState<TeamData[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<string>("true"); // Cambio aquí
 
   useEffect(() => {
     const fetchData = async () => {
@@ -75,14 +79,14 @@ export default function CustomizedTables() {
       } catch (error) {
         console.error(error);
       } finally {
-        setIsLoading(false);
+        setIsLoading("false"); // Cambio aquí
       }
     };
 
     fetchData();
   }, []);
 
-  if (isLoading) {
+  if (isLoading === "true") { // Cambio aquí
     return (
       <div className="spinner-container">
         <Spinner></Spinner>
@@ -129,3 +133,5 @@ export default function CustomizedTables() {
     </div>
   );
 }
+
+export default CustomizedTables;

@@ -30,7 +30,7 @@ describe('Table component', () => {
     fetchMock.mockResponseOnce(JSON.stringify({ response: [{ league: { standings: mockStandingsData } }] }));
     
     render(
-      <BrowserRouter>
+      <BrowserRouter >
         <Table />
       </BrowserRouter>
     );

@@ -80,14 +80,14 @@ describe("BurguerMenu component", () => {
     const burgerMenu = getByTestId("burger-menu");
     const menu = getByTestId("menu");
 
-    // Initial state
+
     expect(menu).toHaveClass("hidden");
 
-    // Clicking burger menu to open menu
+
     fireEvent.click(burgerMenu);
     expect(menu).toHaveClass("visible");
 
-    // Clicking burger menu again to close menu
+
     fireEvent.click(burgerMenu);
     expect(menu).toHaveClass("hidden");
   });
@@ -102,11 +102,11 @@ describe("BurguerMenu component", () => {
     const burgerMenu = getByTestId("burger-menu");
     const menu = getByTestId("menu");
 
-    // Open menu first
+
     fireEvent.click(burgerMenu);
     expect(menu).toHaveClass("visible");
 
-    // Close menu
+
     fireEvent.click(burgerMenu);
     expect(menu).toHaveClass("hidden");
   });

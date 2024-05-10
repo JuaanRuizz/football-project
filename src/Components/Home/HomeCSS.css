@@ -1,0 +1,15 @@
+.home-container {
+  position: relative;
+}
+.burguer-menu {
+  position: relative;
+  z-index: 1;
+}
+.home-page {
+  position: absolute;
+  top: calc(70% + 10px);
+  left: 0;
+  width: 100%;
+}
+
+

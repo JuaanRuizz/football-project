@@ -8,12 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-const POSICION = 'Posición';
-const NOMBRE = 'Nombre';
-const EDAD = 'Edad';
-const EQUIPO = 'Equipo';
-const TARJETAS_AMARILLAS = 'Tarjetas amarillas';
+import { KEY, YC_HEADERS } from "./Strings_YC";
+import Spinner from '../../Spinner/spinner';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -29,7 +25,6 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   "&:nth-of-type(odd)": {
     backgroundColor: theme.palette.action.hover,
   },
-
   "&:last-child td, &:last-child th": {
     border: 0,
   },
@@ -58,7 +53,7 @@ const fetchTopYellowCards = async () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d5611bbd164a7f20c1111f1553f32fb5",
+        "x-rapidapi-key": KEY || "",
       },
     }
   );
@@ -68,6 +63,7 @@ const fetchTopYellowCards = async () => {
 
 const TopYellowCards: React.FC = () => {
   const [topYellowCards, setTopYellowCards] = useState<Player[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,11 +78,21 @@ const TopYellowCards: React.FC = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return(
+    <div className='spinner-container'>
+      <Spinner></Spinner>
+    </div>
+  ); 
+  }
 
   return (
     <div className='table'>
@@ -98,12 +104,12 @@ const TopYellowCards: React.FC = () => {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>{POSICION}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.POSICION}</StyledTableCell>
                 <StyledTableCell></StyledTableCell>
-                <StyledTableCell>{NOMBRE}</StyledTableCell>
-                <StyledTableCell>{EDAD}</StyledTableCell>
-                <StyledTableCell>{EQUIPO}</StyledTableCell>
-                <StyledTableCell>{TARJETAS_AMARILLAS}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.NOMBRE}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.EDAD}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.EQUIPO}</StyledTableCell>
+                <StyledTableCell>{YC_HEADERS.TARJETAS_AMARILLAS}</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

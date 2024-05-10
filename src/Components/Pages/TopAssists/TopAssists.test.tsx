@@ -1,16 +1,70 @@
+/* eslint-disable testing-library/no-wait-for-multiple-assertions */
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import fetchMock from 'jest-fetch-mock';
 import TopAssists from './TopAssists';
-import { MemoryRouter } from 'react-router-dom';
+
+const mockTopAssistsData = [
+  {
+    player: {
+      photo: 'photo-url',
+      name: 'D. Quintero',
+      age: 37,
+    },
+    statistics: [
+      {
+        team: {
+          logo: 'team-logo-url',
+        },
+        goals: {
+          assists: 13,
+        },
+      },
+    ],
+  },
+  {
+    player: {
+      photo: 'photo-url',
+      name: 'E. Torres',
+      age: 27,
+    },
+    statistics: [
+      {
+        team: {
+          logo: 'team-logo-url',
+        },
+        goals: {
+          assists: 12,
+        },
+      },
+    ],
+  },
+];
+
+beforeEach(() => {
+  fetchMock.resetMocks();
+});
 
 describe('TopAssists component', () => {
-  test('renders TopAssists component', async () => {
+  test('renders TopAssists component with player information', async () => {
+    fetchMock.mockResponseOnce(JSON.stringify(mockTopAssistsData));
+    const value = true;
     render(
-      <MemoryRouter>
-        <TopAssists />
-      </MemoryRouter>
+      <BrowserRouter>
+        <TopAssists responsive-height-comments={value.toString()}/>
+      </BrowserRouter>
     );
 
-    expect(screen.getByText('Asistencias')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText('Posición')).toBeInTheDocument();
+      expect(screen.getByText('Nombre')).toBeInTheDocument();
+      expect(screen.getByText('Edad')).toBeInTheDocument();
+      expect(screen.getByText('Equipo')).toBeInTheDocument();
+      expect(screen.getByText('Asistencias')).toBeInTheDocument();
+      expect(screen.getByText('D. Quintero')).toBeInTheDocument();
+      expect(screen.getByText('E. Torres')).toBeInTheDocument();
+
+    });
   });
 });

@@ -52,7 +52,7 @@ nav {
     
 
 .burger-bar.clicked:nth-child(1) {
-  transform: rotate(45deg) translate(12px, 20px);
+  transform: rotate(50deg) translate(18px, 20px);
   transition: ease-out 0.5s;
 }
 
@@ -62,7 +62,7 @@ nav {
 }
 
 .burger-bar.clicked:nth-child(3) {
-  transform: rotate(135deg) translate(-8px, 16px);
+  transform: rotate(130deg) translate(-14px, 16px);
   transition: ease-out 0.5s;
 }
 

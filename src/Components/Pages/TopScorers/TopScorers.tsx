@@ -8,12 +8,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-
-const POSICION = 'Posición';
-const NOMBRE = 'Nombre';
-const EDAD = 'Edad';
-const EQUIPO = 'Equipo';
-const GOLES = 'Goles';
+import {KEY, SCORERS_HEADERS} from "./Strings_Scorers"
+import Spinner from '../../Spinner/spinner';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -58,7 +54,7 @@ const fetchTopScorers = async () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d5611bbd164a7f20c1111f1553f32fb5",
+        "x-rapidapi-key": KEY || "",
       },
     }
   );
@@ -68,6 +64,7 @@ const fetchTopScorers = async () => {
 
 const TopScorers: React.FC = () => {
   const [topScorers, setTopScorers] = useState<Player[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -82,11 +79,21 @@ const TopScorers: React.FC = () => {
         }
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return(
+    <div className='spinner-container'>
+      <Spinner></Spinner>
+    </div>
+  ); 
+  }
 
   return (
     <div className='table'>
@@ -98,12 +105,12 @@ const TopScorers: React.FC = () => {
           <Table sx={{ minWidth: 500 }} aria-label="customized table">
             <TableHead>
               <TableRow>
-                <StyledTableCell>{POSICION}</StyledTableCell>
+                <StyledTableCell>{SCORERS_HEADERS.POSICION}</StyledTableCell>
                 <StyledTableCell></StyledTableCell>
-                <StyledTableCell>{NOMBRE}</StyledTableCell>
-                <StyledTableCell>{EDAD}</StyledTableCell>
-                <StyledTableCell>{EQUIPO}</StyledTableCell>
-                <StyledTableCell>{GOLES}</StyledTableCell>
+                <StyledTableCell>{SCORERS_HEADERS.NOMBRE}</StyledTableCell>
+                <StyledTableCell>{SCORERS_HEADERS.EDAD}</StyledTableCell>
+                <StyledTableCell>{SCORERS_HEADERS.EQUIPO}</StyledTableCell>
+                <StyledTableCell>{SCORERS_HEADERS.GOLES}</StyledTableCell>
               </TableRow>
             </TableHead>
             <TableBody>

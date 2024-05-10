@@ -2,28 +2,20 @@ import React, { useEffect, useState } from "react";
 import BurguerMenu from '../../Menu/Burguer_Menu';
 import './TeamsCSS.css';
 import Logo from '../../../Assets/Logo-LB3.png';
+import { KEY, HEADER_TITLE, INTERESTING_FACTS_TITLE, FACTS_LIST } from "./Strings_teams";
+import Spinner from "../../Spinner/spinner";
+
+interface Team {
+  id: number;
+  name: string;
+  logo: string;
+}
 
 interface TeamData {
-  team: {
-    id: number;
-    name: string;
-    logo: string;
-  };
+  team: Team;
   rank: number;
   points: number;
 }
-
-
-const HEADER_TITLE = 'Lista de Equipos Primera División';
-const INTERESTING_FACTS_TITLE = 'Datos Interesantes';
-const FACTS_LIST = [
-  'Atlético Nacional es el equipo más ganador de la Liga BetPlay con 17 títulos',
-  'Dayro Moreno es, hasta el momento, el mayor goleador de la liga colombiana.',
-  'Los tres únicos clubes que han participado durante toda su historia en la máxima categoría del fútbol en Colombia han sido Santa Fe, Millonarios y Atlético Nacional.',
-  'En el año 2022, el Deportivo Pereira ganó su primer título de la liga colombiana, al vencer en penaltis al Deportivo Independiente Medellín.',
-  'El 15 de agosto de 1948 se jugó el primer partido del FPC y este miércoles se conmemoran siete décadas desde el primer encuentro.',
-  'El primer campeón del fútbol colombiano fue Independiente Santa Fé'
-];
 
 const fetchStandings = async () => {
   const response = await fetch(
@@ -32,7 +24,7 @@ const fetchStandings = async () => {
       method: "GET",
       headers: {
         "x-rapidapi-host": "v3.football.api-sports.io",
-        "x-rapidapi-key": "d5611bbd164a7f20c1111f1553f32fb5",
+        "x-rapidapi-key": KEY || "",
       },
     }
   );
@@ -40,24 +32,38 @@ const fetchStandings = async () => {
   return data.response[0].league.standings[0];
 };
 
-export default function CustomizedList() {
+const Teams: React.FC = () => {
   const [standings, setStandings] = useState<TeamData[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const standingsData = localStorage.getItem("standingsData");
-    if (standingsData) {
-      setStandings(JSON.parse(standingsData));
-    } else {
-      fetchStandings()
-        .then((data) => {
+    const fetchData = async () => {
+      try {
+        const storedData = localStorage.getItem("standingsData");
+        if (storedData) {
+          setStandings(JSON.parse(storedData));
+        } else {
+          const data = await fetchStandings();
           setStandings(data);
           localStorage.setItem("standingsData", JSON.stringify(data));
-        })
-        .catch((error) => {
-          console.error(error);
-        });
-    }
+        }
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, []);
+
+  if (isLoading) {
+    return(
+    <div className="spinner-container">
+      <Spinner></Spinner>
+    </div>
+  );
+  }
 
   return (
     <div className="container-teams">
@@ -97,3 +103,4 @@ export default function CustomizedList() {
   );
 }
 
+export default Teams;
